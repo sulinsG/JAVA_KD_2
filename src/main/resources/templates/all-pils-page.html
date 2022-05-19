@@ -1,0 +1,16 @@
+<html xlmns:th="http://www.thymeleaf.org">
+
+<body>
+	<p> Info par pilsetam: </p>
+	<table>
+		<tr th:each="pils : ${package}">
+			<td th:text="${pils.getNosaukums()}" h </td>
+			<td th:text="${pils.getNovads()}"> </td>
+			<td th:text="${pils.getIedzivotajuSkaits()}"> </td>
+		</tr>
+
+	</table>
+
+</body>
+
+</html>

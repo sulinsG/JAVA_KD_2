@@ -1,10 +1,13 @@
 package com.example.demo.models;
 
+import java.util.Collection;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -27,7 +30,7 @@ import lombok.ToString;
 @ToString
 
 public class Partija {
-	@Column(name="IdK")
+	@Column(name="IdPa")
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Setter(value = AccessLevel.NONE)
@@ -49,6 +52,20 @@ public class Partija {
 	@Min(1)
 	@Max(10000000)	
 	private float partijasBudzets;
+	
+	@OneToMany(mappedBy = "partija")
+	@ToString.Exclude
+	private Collection<Kandidats> kandidatuSaraksts;
+
+	public Partija(
+			@NotNull @Size(min = 3, max = 30) @Pattern(regexp = "[A-Z]{1}[a-z]+", message = "Jabut pirmajam lielajam burtam, un parejie var but mazie") String nosaukums,
+			@NotNull @Size(min = 3, max = 3) @Pattern(regexp = "[A-Z]{1}[a-z]+", message = "Jabut pirmajam lielajam burtam, un parejie var but mazie") String partijasSaisinajums,
+			@Min(1) @Max(10000000) float partijasBudzets) {
+		setNosaukums(nosaukums);
+		setPartijasSaisinajums(partijasSaisinajums);
+		setPartijasBudzets(partijasBudzets);
+	}
+	
 	
 	
 }

@@ -1,0 +1,37 @@
+<html xmlns:th="http://www.thymeleaf.org" >
+        <body>
+        <form action="#" th:action="@{/kandidats/add}" th:object="${kandidats}" method="post">
+        
+        
+        <table>
+        	<tr>
+        		<td> Vards: </td>
+        		<td><input type="text" th:field="*{vards}"> </td>
+        		<td th:if = "${#fields.hasErrors('vards')}" th:errors = "*{vards}"> </td>
+        	</tr>
+        	<tr>
+        		<td> Uzvards: </td>
+        		<td><input type="text" th:field="*{uzvards}"> </td>
+        		<td th:if = "${#fields.hasErrors('uzvards')}" th:errors = "*{uzvards}"> </td>
+        	</tr>        	
+        	<tr>
+        		<td> Partija </td>
+        		<td><input type="text" th:field="*{partija}"> </td>
+        		<td th:if = "${#fields.hasErrors('partija')}" th:errors = "*{partija}"> </td>
+        	</tr>   
+        	<tr>
+        		<td> Pilseta </td>
+        		<td><input type="text" th:field="*{pilseta}"> </td>
+        		<td th:if = "${#fields.hasErrors('pilseta')}" th:errors = "*{pilseta}"> </td>
+        	</tr> 
+        	<tr>          
+     	</table>
+     
+     
+     
+        <button type="submit" > Saglabat kandidatu </button>
+        
+        </form>
+                
+        </body>
+</html>

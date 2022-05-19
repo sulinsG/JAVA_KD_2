@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -34,6 +35,16 @@ public class Balsojums {
 	@Min(0)
 	@Max(10000000)	
 	private int balsis;
+	
+	@OneToOne(mappedBy = "balsojums")
+	@ToString.Exclude
+	private Kandidats kandidats;
+
+	public Balsojums(@Min(0) @Max(10000000) int balsis, Kandidats kandidats) {
+		setBalsis(balsis);
+		setKandidats(kandidats);
+	}
+	
 	
 	
 }

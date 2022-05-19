@@ -1,0 +1,32 @@
+<html xmlns:th="http://www.thymeleaf.org" >
+        <body>
+        <form action="#" th:action="@{/pilseta/add}" th:object="${pilseta}" method="post">
+        
+        
+        <table>
+        	<tr>
+        		<td> Nosaukums: </td>
+        		<td><input type="text" th:field="*{nosaukums}"> </td>
+        		<td th:if = "${#fields.hasErrors('nosaukums')}" th:errors = "*{nosaukums}"> </td>
+        	</tr>
+        	<tr>
+        		<td> Novads: </td>
+        		<td><input type="text" th:field="*{novads}"> </td>
+        		<td th:if = "${#fields.hasErrors('novads')}" th:errors = "*{novads}"> </td>
+        	</tr>        	
+        	<tr>
+        		<td> Iedzivotaju skaits: </td>
+        		<td><input type="text" th:field="*{iedzivotajuSkaits}"> </td>
+        		<td th:if = "${#fields.hasErrors('iedzivotajuSkaits')}" th:errors = "*{iedzivotajuSkaits}"> </td>
+        	</tr>   
+        	<tr>          
+     	</table>
+     
+     
+     
+        <button type="submit" > Saglabat pilsetu </button>
+        
+        </form>
+                
+        </body>
+</html>

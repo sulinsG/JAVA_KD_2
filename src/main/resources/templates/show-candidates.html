@@ -1,0 +1,18 @@
+<html xlmns:th="http://www.thymeleaf.org">
+
+<body>
+	<p> Info par kandidatiem: </p>
+	<table>
+		<tr th:each="kand : ${package}">
+			<td th:text="${kand.getVards()}" h </td>
+			<td th:text="${kand.getUzvards()}"> </td>
+			<td th:text="${kand.getPartija()}"> </td>
+			<td th:text="${kand.getBalsojums()}"> </td>
+
+		</tr>
+
+	</table>
+
+</body>
+
+</html>
